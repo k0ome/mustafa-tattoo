@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" class="dark">
+<html lang="de" x-data="{ lang: 'de' }" :dir="lang === 'ar' ? 'rtl' : 'ltr'" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>استوديو التاتو الاحترافي | محترف الفن الجسدي</title>
+    <title>River of Ink | Professionelles Tattoo-Studio</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -12,115 +12,196 @@
             theme: {
                 extend: {
                     colors: {
-                        darkBg: '#09090b',
-                        cardBg: '#121215',
-                        accent: '#e11d48', /* لون أحمر جريء يناسب التاتو */
+                        darkBg: '#08080a',
+                        cardBg: '#121216',
+                        accent: '#d97706', /* لون ذهبي/نحاسي فخم يناسب اسم River of Ink */
                     }
                 }
             }
         }
     </script>
+    <!-- Alpine.js for Interactivity & Multilingual State -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cairo:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Cairo', sans-serif; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        [dir="rtl"] body { font-family: 'Cairo', sans-serif; }
+        .brand-font { font-family: 'Cinzel', serif; }
     </style>
 </head>
-<body class="bg-darkBg text-zinc-100 min-h-screen selection:bg-accent selection:text-white">
+<body class="bg-darkBg text-zinc-100 min-h-screen selection:bg-accent selection:text-white"
+      x-data="{
+          translations: {
+              de: {
+                  navBook: 'Termin buchen',
+                  heroTitle: 'River of Ink',
+                  heroSubtitle: 'Meisterhafte Tattoos, die Geschichten erzählen. Verwandeln Sie Ihre Vision in zeitlose Kunst auf Ihrer Haut mit höchsten Hygiene- und Sicherheitsstandards.',
+                  ig: 'Instagram',
+                  tt: 'TikTok',
+                  fb: 'Facebook',
+                  portfolioTitle: 'Galerie & Arbeiten',
+                  realism: 'Dark Realism & Portrait',
+                  script: 'Lettering & Script',
+                  trash: 'Trash Polka Stil',
+                  locationTitle: 'Studio Standort',
+                  addressTitle: 'Hauptadresse:',
+                  addressText: 'Kunststraße 42, 2. Stock, City Mall',
+                  hoursTitle: 'Öffnungszeiten:',
+                  hoursText: 'Täglich von 14:00 bis 22:00 Uhr (Nur nach Terminvereinbarung)',
+                  mapBtn: 'In Google Maps öffnen',
+                  footer: '© 2026 River of Ink. Alle Rechte vorbehalten.',
+                  waText: 'Hallo, ich möchte einen Termin für ein neues Tattoo vereinbaren.'
+              },
+              en: {
+                  navBook: 'Quick Book',
+                  heroTitle: 'River of Ink',
+                  heroSubtitle: 'Masterful tattoos that tell stories. Transform your vision into timeless art on your skin with the highest standards of hygiene and safety.',
+                  ig: 'Instagram',
+                  tt: 'TikTok',
+                  fb: 'Facebook',
+                  portfolioTitle: 'Portfolio & Works',
+                  realism: 'Dark Realism & Portrait',
+                  script: 'Lettering & Script',
+                  trash: 'Trash Polka Style',
+                  locationTitle: 'Studio Location',
+                  addressTitle: 'Main Address:',
+                  addressText: 'Art Street 42, 2nd Floor, City Mall',
+                  hoursTitle: 'Working Hours:',
+                  hoursText: 'Daily from 2:00 PM to 10:00 PM (By appointment only)',
+                  mapBtn: 'Open Google Maps',
+                  footer: '© 2026 River of Ink. All rights reserved.',
+                  waText: 'Hello, I would like to book an appointment for a new tattoo.'
+              },
+              ar: {
+                  navBook: 'حجز سريع',
+                  heroTitle: 'River of Ink',
+                  heroSubtitle: 'تاتو احترافي يروي قصصاً ملهمة. نحول أفكارك إلى لوحات فنية خالدة على بشرتك بأعلى معايير التعقيم والأمان.',
+                  ig: 'إنستجرام',
+                  tt: 'تيك توك',
+                  fb: 'فيسبوك',
+                  portfolioTitle: 'معرض الأعمال',
+                  realism: 'تصاميم الواقعية المظلمة',
+                  script: 'فن الخط العربي والـ Script',
+                  trash: 'طراز بولكا العشوائي',
+                  locationTitle: 'موقع الاستوديو',
+                  addressTitle: 'العنوان الرئيسي:',
+                  addressText: 'شارع الفن 42، الطابق الثاني، مول المدينة',
+                  hoursTitle: 'أوقات العمل:',
+                  hoursText: 'يومياً من الساعة 2 ظهراً حتى 10 مساءً (الحجز مسبقاً فقط)',
+                  mapBtn: 'فتح خرائط جوجل',
+                  footer: '© 2026 River of Ink. جميع الحقوق محفوظة.',
+                  waText: 'مرحباً، أود حجز موعد لتاتو جديد.'
+              }
+          }
+      }">
 
-    <!-- نافبار علوية سريعة -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-darkBg/80 backdrop-blur-md border-b border-zinc-800">
+    <!-- نافبار علوية مع محول اللغات -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-darkBg/90 backdrop-blur-md border-b border-zinc-800/80">
         <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-            <a href="#" class="text-xl font-black tracking-wider text-accent uppercase">INK MASTER</a>
-            <a href="https://wa.me/964XXXXXXXXXX?text=مرحباً، أود حجز موعد لتاتو جديد" target="_blank" 
-               class="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2 transition-all shadow-lg shadow-emerald-900/20">
-                <i class="fa-brands fa-whatsapp text-lg"></i> حجز سريع
-            </a>
+            <a href="#" class="text-xl font-bold tracking-widest text-accent brand-font">RIVER OF INK</a>
+            
+            <div class="flex items-center gap-4">
+                <!-- أزرار تبديل اللغات -->
+                <div class="flex bg-cardBg border border-zinc-800 rounded-lg p-1 text-xs">
+                    <button @click="lang = 'de'" :class="lang === 'de' ? 'bg-accent text-white font-bold' : 'text-zinc-400 hover:text-white'" class="px-2.5 py-1 rounded-md transition-all">DE</button>
+                    <button @click="lang = 'en'" :class="lang === 'en' ? 'bg-accent text-white font-bold' : 'text-zinc-400 hover:text-white'" class="px-2.5 py-1 rounded-md transition-all">EN</button>
+                    <button @click="lang = 'ar'" :class="lang === 'ar' ? 'bg-accent text-white font-bold' : 'text-zinc-400 hover:text-white'" class="px-2.5 py-1 rounded-md transition-all">AR</button>
+                </div>
+
+                <!-- زر الحجز -->
+                <a :href="'https://wa.me/964XXXXXXXXXX?text=' + encodeURIComponent(translations[lang].waText)" target="_blank" 
+                   class="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-full text-xs font-bold flex items-center gap-2 transition-all shadow-lg shadow-emerald-900/20">
+                    <i class="fa-brands fa-whatsapp text-base"></i> <span x-text="translations[lang].navBook"></span>
+                </a>
+            </div>
         </div>
     </header>
 
     <!-- الهيرو سكشن (الواجهة الترحيبية) -->
-    <section class="pt-32 pb-16 px-4 text-center max-w-4xl mx-auto">
-        <div class="relative w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-2 border-accent p-1 shadow-2xl shadow-accent/20">
-            <img src="https://images.unsplash.com/photo-1598371839606-9185dcd8e185?auto=format&fit=crop&q=80&w=400" alt="Artist Profile" class="w-full h-full object-cover rounded-full">
+    <section class="pt-36 pb-16 px-4 text-center max-w-4xl mx-auto">
+        <div class="relative w-36 h-36 mx-auto mb-6 rounded-full overflow-hidden border-2 border-accent p-1 shadow-2xl shadow-accent/20">
+            <img src="https://images.unsplash.com/photo-1598371839606-9185dcd8e185?auto=format&fit=crop&q=80&w=400" alt="Tattoo Artist" class="w-full h-full object-cover rounded-full">
         </div>
-        <h1 class="text-4xl md:text-6xl font-black mb-4 tracking-tight">أحمد <span class="text-accent">تاتو</span></h1>
-        <p class="text-zinc-400 text-lg max-w-xl mx-auto mb-8 font-light">فنان تاتو محترف بخبرة تتجاوز 8 سنوات. أحول أفكارك إلى لوحات فنية خالدة على بشرتك بأعلى معايير التعقيم والأمان.</p>
+        
+        <h1 class="text-4xl md:text-6xl font-black mb-4 tracking-wider brand-font text-accent" x-text="translations[lang].heroTitle"></h1>
+        <p class="text-zinc-400 text-base md:text-lg max-w-xl mx-auto mb-8 font-light leading-relaxed" x-text="translations[lang].heroSubtitle"></p>
         
         <!-- أزرار التواصل الاجتماعي -->
         <div class="flex justify-center gap-4 flex-wrap">
             <a href="https://instagram.com" target="_blank" class="bg-cardBg hover:bg-zinc-800 border border-zinc-800 px-5 py-3 rounded-xl flex items-center gap-3 transition-all hover:scale-105">
                 <i class="fa-brands fa-instagram text-pink-500 text-xl"></i>
-                <span class="font-semibold text-sm">انستجرام</span>
+                <span class="font-semibold text-sm" x-text="translations[lang].ig"></span>
             </a>
             <a href="https://tiktok.com" target="_blank" class="bg-cardBg hover:bg-zinc-800 border border-zinc-800 px-5 py-3 rounded-xl flex items-center gap-3 transition-all hover:scale-105">
                 <i class="fa-brands fa-tiktok text-white text-xl"></i>
-                <span class="font-semibold text-sm">تيك توك</span>
+                <span class="font-semibold text-sm" x-text="translations[lang].tt"></span>
             </a>
             <a href="https://facebook.com" target="_blank" class="bg-cardBg hover:bg-zinc-800 border border-zinc-800 px-5 py-3 rounded-xl flex items-center gap-3 transition-all hover:scale-105">
                 <i class="fa-brands fa-facebook text-blue-500 text-xl"></i>
-                <span class="font-semibold text-sm">فيسبوك</span>
+                <span class="font-semibold text-sm" x-text="translations[lang].fb"></span>
             </a>
         </div>
     </section>
 
     <!-- قسم معرض الأعمال (Portfolio) -->
     <section class="py-12 px-4 max-w-6xl mx-auto">
-        <h2 class="text-2xl font-bold mb-8 text-center border-b border-zinc-800 pb-4">معرض <span class="text-accent">الأعمال</span></h2>
+        <h2 class="text-2xl font-bold mb-8 text-center border-b border-zinc-800/80 pb-4 brand-font" x-text="translations[lang].portfolioTitle"></h2>
         
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             <!-- عمل 1 -->
             <div class="group relative overflow-hidden rounded-2xl bg-cardBg border border-zinc-800 aspect-square">
-                <img src="https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&q=80&w=600" alt="Tattoo work 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                <img src="https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&q=80&w=600" alt="Work 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                 <div class="absolute inset-0 bg-gradient-to-t from-darkBg/90 via-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                    <p class="text-sm font-bold text-zinc-200">تصميم رياليستيك - الواقعية المظلمة</p>
+                    <p class="text-sm font-bold text-zinc-200" x-text="translations[lang].realism"></p>
                 </div>
             </div>
             <!-- عمل 2 -->
             <div class="group relative overflow-hidden rounded-2xl bg-cardBg border border-zinc-800 aspect-square">
-                <img src="https://images.unsplash.com/photo-1611501275019-9b5cda994e8d?auto=format&fit=crop&q=80&w=600" alt="Tattoo work 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                <img src="https://images.unsplash.com/photo-1611501275019-9b5cda994e8d?auto=format&fit=crop&q=80&w=600" alt="Work 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                 <div class="absolute inset-0 bg-gradient-to-t from-darkBg/90 via-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                    <p class="text-sm font-bold text-zinc-200">الخط العربي والجرامرز</p>
+                    <p class="text-sm font-bold text-zinc-200" x-text="translations[lang].script"></p>
                 </div>
             </div>
             <!-- عمل 3 -->
             <div class="group relative overflow-hidden rounded-2xl bg-cardBg border border-zinc-800 aspect-square">
-                <img src="https://images.unsplash.com/photo-1598371839606-9185dcd8e185?auto=format&fit=crop&q=80&w=600" alt="Tattoo work 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                <img src="https://images.unsplash.com/photo-1598371839606-9185dcd8e185?auto=format&fit=crop&q=80&w=600" alt="Work 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                 <div class="absolute inset-0 bg-gradient-to-t from-darkBg/90 via-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                    <p class="text-sm font-bold text-zinc-200">نيو تراش بولكا</p>
+                    <p class="text-sm font-bold text-zinc-200" x-text="translations[lang].trash"></p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- قسم الموقع الجغرافي ومعلومات الاستوديو -->
+    <!-- قسم موقع الاستوديو -->
     <section class="py-12 px-4 max-w-4xl mx-auto text-center">
-        <h2 class="text-2xl font-bold mb-6">موقع <span class="text-accent">الاستوديو</span></h2>
-        <div class="bg-cardBg border border-zinc-800 p-6 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6">
-            <div class="text-right">
-                <p class="font-bold text-lg mb-2"><i class="fa-solid fa-location-dot text-accent ml-2"></i> العنوان الرئيسي:</p>
-                <p class="text-zinc-400 text-sm mb-4">شارع الفن، بجوار مول المدينة، الطابق الثاني.</p>
-                <p class="font-bold text-lg mb-2"><i class="fa-solid fa-clock text-accent ml-2"></i> أوقات العمل:</p>
-                <p class="text-zinc-400 text-sm">يومياً من الساعة 2 ظهراً حتى 10 مساءً (الحجز مسبقاً)</p>
+        <h2 class="text-2xl font-bold mb-6 brand-font" x-text="translations[lang].locationTitle"></h2>
+        <div class="bg-cardBg border border-zinc-800 p-6 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6 text-start">
+            <div>
+                <p class="font-bold text-base mb-1 flex items-center gap-2"><i class="fa-solid fa-location-dot text-accent"></i> <span x-text="translations[lang].addressTitle"></span></p>
+                <p class="text-zinc-400 text-sm mb-4" x-text="translations[lang].addressText"></p>
+                
+                <p class="font-bold text-base mb-1 flex items-center gap-2"><i class="fa-solid fa-clock text-accent"></i> <span x-text="translations[lang].hoursTitle"></span></p>
+                <p class="text-zinc-400 text-sm" x-text="translations[lang].hoursText"></p>
             </div>
-            <a href="https://maps.google.com" target="_blank" class="bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 text-white px-6 py-3 rounded-xl text-sm font-bold transition-all">
-                فتح خرائط جوجل
+            <a href="https://maps.google.com" target="_blank" class="bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 text-white px-6 py-3 rounded-xl text-xs font-bold transition-all whitespace-nowrap">
+                <span x-text="translations[lang].mapBtn"></span>
             </a>
         </div>
     </section>
 
-    <!-- زر الواتساب العائم الثابت (Floating WhatsApp CTA) -->
-    <a href="https://wa.me/964XXXXXXXXXX?text=مرحباً، أود حجز موعد لتاتو جديد" target="_blank" 
+    <!-- زر الواتساب العائم الثابت -->
+    <a :href="'https://wa.me/964XXXXXXXXXX?text=' + encodeURIComponent(translations[lang].waText)" target="_blank" 
        class="fixed bottom-6 left-6 z-50 bg-emerald-600 hover:bg-emerald-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-2xl shadow-emerald-600/50 transition-all hover:scale-110"
-       title="راسلني مباشرة عبر واتساب">
+       title="WhatsApp Chat">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
     <!-- الفوتر -->
-    <footer class="border-t border-zinc-800 py-6 text-center text-xs text-zinc-500">
-        <p>&copy; 2026 جميع الحقوق محفوظة - تم التطوير خصيصاً لفنان التاتو.</p>
+    <footer class="border-t border-zinc-800/80 py-6 text-center text-xs text-zinc-500">
+        <p x-text="translations[lang].footer"></p>
     </footer>
 
 </body>
