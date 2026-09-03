@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>River of Ink | Professionelles Tattoo-Studio</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -14,17 +13,14 @@
                     colors: {
                         darkBg: '#08080a',
                         cardBg: '#121216',
-                        accent: '#d97706', /* لون ذهبي/نحاسي فخم يناسب اسم River of Ink */
+                        accent: '#d97706',
                     }
                 }
             }
         }
     </script>
-    <!-- Alpine.js for Interactivity & Multilingual State -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cairo:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
@@ -48,9 +44,7 @@
                   trash: 'Trash Polka Stil',
                   locationTitle: 'Studio Standort',
                   addressTitle: 'Hauptadresse:',
-                  addressText: 'Kunststraße 42, 2. Stock, City Mall',
-                  hoursTitle: 'Öffnungszeiten:',
-                  hoursText: 'Täglich von 14:00 bis 22:00 Uhr (Nur nach Terminvereinbarung)',
+                  addressText: '90547 Stein / Deutschland',
                   mapBtn: 'In Google Maps öffnen',
                   footer: '© 2026 River of Ink. Alle Rechte vorbehalten.',
                   waText: 'Hallo, ich möchte einen Termin für ein neues Tattoo vereinbaren.'
@@ -68,9 +62,7 @@
                   trash: 'Trash Polka Style',
                   locationTitle: 'Studio Location',
                   addressTitle: 'Main Address:',
-                  addressText: 'Art Street 42, 2nd Floor, City Mall',
-                  hoursTitle: 'Working Hours:',
-                  hoursText: 'Daily from 2:00 PM to 10:00 PM (By appointment only)',
+                  addressText: '90547 Stein / Germany',
                   mapBtn: 'Open Google Maps',
                   footer: '© 2026 River of Ink. All rights reserved.',
                   waText: 'Hello, I would like to book an appointment for a new tattoo.'
@@ -88,9 +80,7 @@
                   trash: 'طراز بولكا العشوائي',
                   locationTitle: 'موقع الاستوديو',
                   addressTitle: 'العنوان الرئيسي:',
-                  addressText: 'شارع الفن 42، الطابق الثاني، مول المدينة',
-                  hoursTitle: 'أوقات العمل:',
-                  hoursText: 'يومياً من الساعة 2 ظهراً حتى 10 مساءً (الحجز مسبقاً فقط)',
+                  addressText: '90547 Stein / Germany',
                   mapBtn: 'فتح خرائط جوجل',
                   footer: '© 2026 River of Ink. جميع الحقوق محفوظة.',
                   waText: 'مرحباً، أود حجز موعد لتاتو جديد.'
@@ -98,20 +88,17 @@
           }
       }">
 
-    <!-- نافبار علوية مع محول اللغات -->
     <header class="fixed top-0 left-0 right-0 z-50 bg-darkBg/90 backdrop-blur-md border-b border-zinc-800/80">
         <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
             <a href="#" class="text-xl font-bold tracking-widest text-accent brand-font">RIVER OF INK</a>
             
             <div class="flex items-center gap-4">
-                <!-- أزرار تبديل اللغات -->
                 <div class="flex bg-cardBg border border-zinc-800 rounded-lg p-1 text-xs">
                     <button @click="lang = 'de'" :class="lang === 'de' ? 'bg-accent text-white font-bold' : 'text-zinc-400 hover:text-white'" class="px-2.5 py-1 rounded-md transition-all">DE</button>
                     <button @click="lang = 'en'" :class="lang === 'en' ? 'bg-accent text-white font-bold' : 'text-zinc-400 hover:text-white'" class="px-2.5 py-1 rounded-md transition-all">EN</button>
                     <button @click="lang = 'ar'" :class="lang === 'ar' ? 'bg-accent text-white font-bold' : 'text-zinc-400 hover:text-white'" class="px-2.5 py-1 rounded-md transition-all">AR</button>
                 </div>
 
-                <!-- زر الحجز -->
                 <a :href="'https://wa.me/4917664646045?text=' + encodeURIComponent(translations[lang].waText)" target="_blank" 
                    class="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-full text-xs font-bold flex items-center gap-2 transition-all shadow-lg shadow-emerald-900/20">
                     <i class="fa-brands fa-whatsapp text-base"></i> <span x-text="translations[lang].navBook"></span>
@@ -120,7 +107,6 @@
         </div>
     </header>
 
-    <!-- الهيرو سكشن (الواجهة الترحيبية) -->
     <section class="pt-36 pb-16 px-4 text-center max-w-4xl mx-auto">
         <div class="relative w-36 h-36 mx-auto mb-6 rounded-full overflow-hidden border-2 border-accent p-1 shadow-2xl shadow-accent/20">
             <img src="1.jpg" alt="Tattoo Artist" class="w-full h-full object-cover rounded-full">
@@ -129,7 +115,6 @@
         <h1 class="text-4xl md:text-6xl font-black mb-4 tracking-wider brand-font text-accent" x-text="translations[lang].heroTitle"></h1>
         <p class="text-zinc-400 text-base md:text-lg max-w-xl mx-auto mb-8 font-light leading-relaxed" x-text="translations[lang].heroSubtitle"></p>
         
-        <!-- أزرار التواصل الاجتماعي -->
         <div class="flex justify-center gap-4 flex-wrap">
             <a href="https://www.instagram.com/s170.h/" target="_blank" class="bg-cardBg hover:bg-zinc-800 border border-zinc-800 px-5 py-3 rounded-xl flex items-center gap-3 transition-all hover:scale-105">
                 <i class="fa-brands fa-instagram text-pink-500 text-xl"></i>
@@ -146,26 +131,22 @@
         </div>
     </section>
 
-    <!-- قسم معرض الأعمال (Portfolio) -->
     <section class="py-12 px-4 max-w-6xl mx-auto">
         <h2 class="text-2xl font-bold mb-8 text-center border-b border-zinc-800/80 pb-4 brand-font" x-text="translations[lang].portfolioTitle"></h2>
         
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            <!-- عمل 1 -->
             <div class="group relative overflow-hidden rounded-2xl bg-cardBg border border-zinc-800 aspect-square">
                 <img src="2.png" alt="Work 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                 <div class="absolute inset-0 bg-gradient-to-t from-darkBg/90 via-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
                     <p class="text-sm font-bold text-zinc-200" x-text="translations[lang].realism"></p>
                 </div>
             </div>
-            <!-- عمل 2 -->
             <div class="group relative overflow-hidden rounded-2xl bg-cardBg border border-zinc-800 aspect-square">
                 <img src="3.jpg" alt="Work 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                 <div class="absolute inset-0 bg-gradient-to-t from-darkBg/90 via-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
                     <p class="text-sm font-bold text-zinc-200" x-text="translations[lang].script"></p>
                 </div>
             </div>
-            <!-- عمل 3 -->
             <div class="group relative overflow-hidden rounded-2xl bg-cardBg border border-zinc-800 aspect-square">
                 <img src="4.jpg" alt="Work 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                 <div class="absolute inset-0 bg-gradient-to-t from-darkBg/90 via-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
@@ -175,16 +156,12 @@
         </div>
     </section>
 
-    <!-- قسم موقع الاستوديو -->
     <section class="py-12 px-4 max-w-4xl mx-auto text-center">
         <h2 class="text-2xl font-bold mb-6 brand-font" x-text="translations[lang].locationTitle"></h2>
         <div class="bg-cardBg border border-zinc-800 p-6 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6 text-start">
             <div>
                 <p class="font-bold text-base mb-1 flex items-center gap-2"><i class="fa-solid fa-location-dot text-accent"></i> <span x-text="translations[lang].addressTitle"></span></p>
-                <p class="text-zinc-400 text-sm mb-4" x-text="translations[lang].addressText"></p>
-                
-                <p class="font-bold text-base mb-1 flex items-center gap-2"><i class="fa-solid fa-clock text-accent"></i> <span x-text="translations[lang].hoursTitle"></span></p>
-                <p class="text-zinc-400 text-sm" x-text="translations[lang].hoursText"></p>
+                <p class="text-zinc-400 text-sm" x-text="translations[lang].addressText"></p>
             </div>
             <a href="https://maps.app.goo.gl/t3kBF9E6hGggaasx7" target="_blank" class="bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 text-white px-6 py-3 rounded-xl text-xs font-bold transition-all whitespace-nowrap">
                 <span x-text="translations[lang].mapBtn"></span>
@@ -192,14 +169,12 @@
         </div>
     </section>
 
-    <!-- زر الواتساب العائم الثابت -->
     <a :href="'https://wa.me/4917664646045?text=' + encodeURIComponent(translations[lang].waText)" target="_blank" 
        class="fixed bottom-6 left-6 z-50 bg-emerald-600 hover:bg-emerald-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-2xl shadow-emerald-600/50 transition-all hover:scale-110"
        title="WhatsApp Chat">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <!-- الفوتر -->
     <footer class="border-t border-zinc-800/80 py-6 text-center text-xs text-zinc-500">
         <p x-text="translations[lang].footer"></p>
     </footer>
